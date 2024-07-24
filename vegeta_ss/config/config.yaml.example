@@ -1,12 +1,12 @@
 targets:
-  - name: "service-post-xxl"
+  - name: "service-post"
     url: "https://jsonplaceholder.typicode.com/posts"
     method: "POST"
     body_file: "payloads/example_payload.json"
     headers:
       Content-Type: "application/json"
 
-  - name: "service-post-xxl-2"
+  - name: "service-post-2"
     url: "https://reqres.in/api/users"
     method: "POST"
     body_file: "payloads/example_payload.json"
