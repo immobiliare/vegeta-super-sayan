@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 from vegeta_ss.__main__ import VegetaAttacker, evaluate_trial, save_results
-from vegeta_ss.models import AttackReport, HTTPMethod, Target, TestParameters
+from vegeta_ss.models import AttackReport, HTTPMethod, Target, ExperimentParameters
 from vegeta_ss.utils import format_time
 
 test_target_get = Target(
@@ -49,7 +49,7 @@ test_target_options = Target(
 test_target_trace = Target(
     name="test_target_trace", method=HTTPMethod("TRACE"), url="http://localhost"
 )
-test_target_params = TestParameters(
+test_target_params = ExperimentParameters(
     experiment_name="test_experiment_name",
     min_req_sec=1,
     max_req_sec=100,

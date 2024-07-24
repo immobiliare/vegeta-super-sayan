@@ -17,7 +17,7 @@ targets:
     url: "https://jsonplaceholder.typicode.com/posts/1"
     method: "GET"
 
-test_parameters:
+experiment_parameters:
   # Name used to help organizing and keeping different experiments results, which will be saved in results/experiments
   experiment_name: experiment_i
   # Maximum rate of request per second that will be tried

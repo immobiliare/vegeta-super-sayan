@@ -41,7 +41,7 @@ class Target(BaseModel):
     body_file: Optional[str] = Field(None, description="File path for the request body")
 
 
-class TestParameters(BaseModel):
+class ExperimentParameters(BaseModel):
     experiment_name: str
     min_req_sec: int
     max_req_sec: int

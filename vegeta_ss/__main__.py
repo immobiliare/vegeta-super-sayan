@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from omegaconf import OmegaConf
 
-from vegeta_ss.models import AttackReport, Target, TestParameters
+from vegeta_ss.models import AttackReport, Target, ExperimentParameters
 from vegeta_ss.utils import format_time, logger
 
 results_dir = Path("results")
@@ -165,20 +165,20 @@ def save_results(data: list, result_file_path: Path, result: AttackReport) -> No
     result_df.to_csv(result_file_path, index=False)
 
 
-def run_load_test(target: Target, test_params: TestParameters) -> None:
+def run_load_test(target: Target, experiment_params: ExperimentParameters) -> None:
     t0 = time.time()
 
     # Set up trial parameters
-    max_ub = int(test_params.max_latency_upper_bound_msec * 1e6)
-    avg_ub = int(test_params.avg_latency_upper_bound_msec * 1e6)
+    max_ub = int(experiment_params.max_latency_upper_bound_msec * 1e6)
+    avg_ub = int(experiment_params.avg_latency_upper_bound_msec * 1e6)
     rate, max_found, breaking_point = (
-        test_params.max_req_sec,
-        max(0, test_params.min_req_sec - 1),
-        test_params.max_req_sec,
+        experiment_params.max_req_sec,
+        max(0, experiment_params.min_req_sec - 1),
+        experiment_params.max_req_sec,
     )
 
     # Set up save results dir
-    base_dir = results_dir / test_params.experiment_name / target.name
+    base_dir = results_dir / experiment_params.experiment_name / target.name
     file_name = "results.csv"
     base_dir.mkdir(parents=True, exist_ok=True)
 
@@ -188,15 +188,15 @@ def run_load_test(target: Target, test_params: TestParameters) -> None:
         logger.info(f"Performing trial with rate {rate}")
         with VegetaAttacker(
             target,
-            test_params.experiment_name,
-            test_params.save_plots,
-            test_params.print_histograms,
-            test_params.hist_bins,
+            experiment_params.experiment_name,
+            experiment_params.save_plots,
+            experiment_params.print_histograms,
+            experiment_params.hist_bins,
         ) as attacker:
             result = attacker.run_attack(
                 rate,
-                test_params.experiment_duration_sec,
-                test_params.vegeta_timeout_sec,
+                experiment_params.experiment_duration_sec,
+                experiment_params.vegeta_timeout_sec,
             )
         max_found, breaking_point = evaluate_trial(
             rate,
@@ -205,7 +205,7 @@ def run_load_test(target: Target, test_params: TestParameters) -> None:
             avg_ub,
             max_found,
             breaking_point,
-            test_params.sleep_time_between_trials_sec,
+            experiment_params.sleep_time_between_trials_sec,
         )
         data.append(
             [rate, f"{result.success:.2%}"]
@@ -220,7 +220,7 @@ def run_load_test(target: Target, test_params: TestParameters) -> None:
         result_file_path = base_dir / file_name
         save_results(data, result_file_path, result)
 
-    if max_found < test_params.min_req_sec:
+    if max_found < experiment_params.min_req_sec:
         logger.info(
             f"Test completed in {round(time.time() - t0)}s. Unable to find a suitable rate. Try lowering min_req_seq parameter in config. Complete results at {result_file_path}"
         )
@@ -233,14 +233,14 @@ def run_load_test(target: Target, test_params: TestParameters) -> None:
 def main(cfg_path="vegeta_ss/config/config.yaml"):
     cfg = OmegaConf.load(cfg_path)
 
-    test_params = TestParameters(**cfg.test_parameters)
-    result_dir = results_dir / test_params.experiment_name
+    experiment_params = ExperimentParameters(**cfg.experiment_parameters)
+    result_dir = results_dir / experiment_params.experiment_name
 
     try:
         os.makedirs(result_dir)
     except FileExistsError:
         logger.warning(
-            f"Experiment folder with name {test_params.experiment_name} already existing, continuing will override. Continue? [Y/n]"
+            f"Experiment folder with name {experiment_params.experiment_name} already existing, continuing will override. Continue? [Y/n]"
         )
         answer = input(
             "         --------> send n if you want to stop the experiment and exit, any other key to continue: "
@@ -255,7 +255,7 @@ def main(cfg_path="vegeta_ss/config/config.yaml"):
         logger.info(
             f"Starting load test for Target {target.name}, {i + 1} of {len(cfg.targets)} targets"
         )
-        run_load_test(target, test_params)
+        run_load_test(target, experiment_params)
 
 
 if __name__ == "__main__":

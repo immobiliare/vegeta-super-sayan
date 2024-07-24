@@ -124,7 +124,7 @@ targets:
     url: "https://jsonplaceholder.typicode.com/posts/1"
     method: "GET"
 
-test_parameters:
+experiment_parameters:
   # Name used to help organizing and keeping different experiments results, which will be saved in results/experiments
   experiment_name: experiment_i
   # Maximum rate of request per second that will be tried
@@ -156,7 +156,7 @@ cp vegeta_ss/config/config.yaml.example vegeta_ss/config/config.yaml
 ```
 
 In this way you'll have a git-ignored config file (to avoid undesired url sharing).
-In this configuration, you can define multiple target endpoints, each with its own characteristics such as the URL, HTTP method, request body file, and headers. The `test_parameters` section allows you to set global parameters for the load testing experiments, including the maximum request rate to be tested, experiment duration, latency bounds, and timeout settings.
+In this configuration, you can define multiple target endpoints, each with its own characteristics such as the URL, HTTP method, request body file, and headers. The `experiment_parameters` section allows you to set global parameters for the load testing experiments, including the maximum request rate to be tested, experiment duration, latency bounds, and timeout settings.
 
 By adjusting these configuration settings, you can tailor the load testing tool to your specific use case, helping you assess the performance and reliability of your web services or APIs under various conditions.
 
