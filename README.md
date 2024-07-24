@@ -2,11 +2,15 @@
   <a href="https://labs.immobiliare.it/">
     <img src="https://labs.immobiliare.it/_next/static/media/immobiliare-labs.03203fa0.svg" width="650" height="auto"/>
   </a>
-</div>
+
 
 # Vegeta Super Sayan
 
 > Vegeta System for Universal Performance Evaluation and Resilience Studies with Automated Yield and Analysis for Networks using Vegeta
+
+![Test](https://github.com/immobiliare/vegeta-super-sayan/actions/workflows/ci.yaml/badge.svg)
+
+</div>
 
 This project is a versatile load testing tool designed to evaluate the performance and resilience of web services and APIs. Using the Vegeta load testing framework as its core, this tool provides a user-friendly interface for conducting load tests on a variety of target endpoints with different configurations. It allows users to define test parameters such as request rate, duration, and latency upper bounds, and then systematically explores different request rates to find the optimal performance point or identify breaking points where the system starts to degrade under load.
 
@@ -16,7 +20,7 @@ This project is a versatile load testing tool designed to evaluate the performan
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Results](#results)
+- [Usage](#usage)
 
 ## Introduction
 
@@ -160,7 +164,7 @@ In this configuration, you can define multiple target endpoints, each with its o
 
 By adjusting these configuration settings, you can tailor the load testing tool to your specific use case, helping you assess the performance and reliability of your web services or APIs under various conditions.
 
-## Usage and results
+## Usage
 
 After running the script using the provided command:
 
