@@ -9,10 +9,11 @@
 > Vegeta System for Universal Performance Evaluation and Resilience Studies with Automated Yield and Analysis for Networks using Vegeta
 
 ![Test](https://github.com/immobiliare/vegeta-super-sayan/actions/workflows/ci.yaml/badge.svg)
+![Python 3.9](https://img.shields.io/badge/Python-3.9+-blue)
 
 </div>
 
-This project is a versatile load testing tool designed to evaluate the performance and resilience of web services and APIs. Using the Vegeta load testing framework as its core, this tool provides a user-friendly interface for conducting load tests on a variety of target endpoints with different configurations. It allows users to define test parameters such as request rate, duration, and latency upper bounds, and then systematically explores different request rates to find the optimal performance point or identify breaking points where the system starts to degrade under load.
+This project is a versatile load testing tool designed to evaluate the performance and resilience of web services and APIs. Using the [Vegeta](https://github.com/tsenart/vegeta) load testing framework as its core, this tool written in python provides a user-friendly interface for conducting load tests on a variety of target endpoints with different configurations. It allows users to define test parameters such as request rate, duration, and latency upper bounds, and then systematically explores different request rates to find the optimal performance point or identify breaking points where the system starts to degrade under load.
 
 
 ## Table of Contents
@@ -23,8 +24,6 @@ This project is a versatile load testing tool designed to evaluate the performan
 - [Usage](#usage)
 
 ## Introduction
-
-This project is a versatile load testing tool designed to evaluate the performance and resilience of web services and APIs. Using the Vegeta load testing framework as its core, this tool provides a user-friendly interface for conducting load tests on a variety of target endpoints with different configurations. It allows users to define test parameters such as request rate, duration, and latency upper bounds, and then systematically explores different request rates to find the optimal performance point or identify breaking points where the system starts to degrade under load.
 
 Key features of this project include:
 
