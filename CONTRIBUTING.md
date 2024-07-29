@@ -65,9 +65,9 @@ To maintain code quality, please adhere to the following guidelines:
 - Ensure all new features are covered by tests.
 - Update documentation as needed when making changes.
 
-## Running Tests
+## Running Tests and lint
 
-Before submitting your pull request, ensure that all tests pass:
+Before submitting your pull request, ensure that all tests pass and that the code is linted:
 
 1. **Activate the virtual environment**:
    ```bash
@@ -77,7 +77,10 @@ Before submitting your pull request, ensure that all tests pass:
    ```bash
    pytest --cov
    ```
-
+3 **Run the tests** using pytest:
+   ```bash
+   pre-commit run --all-files
+   ```
 
 Thank you for your contributions!
 
