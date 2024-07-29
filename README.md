@@ -66,6 +66,12 @@ make vegeta
 mv vegeta ~/bin # Or elsewhere, up to you.
 ```
 
+### Clone Vegeta Super Sayan
+
+```shell
+git clone https://github.com/immobiliare/vegeta-super-sayan
+```
+
 ### Create virtualenv and install requirements
 
 In order to create a clean environment for the execution of the application, a new virtualenv should be created inside the current folder, using the command
