@@ -15,6 +15,10 @@
 
 This project is a versatile load testing tool designed to evaluate the performance and resilience of web services and APIs. Using the [Vegeta](https://github.com/tsenart/vegeta) load testing framework as its core, this tool written in python provides a user-friendly interface for conducting load tests on a variety of target endpoints with different configurations. It allows users to define test parameters such as request rate, duration, and latency upper bounds, and then systematically explores different request rates to find the optimal performance point or identify breaking points where the system starts to degrade under load.
 
+<div align="center">
+
+![Example](.github/example_images/vegeta_example.gif)
+</div>
 
 ## Table of Contents
 
@@ -186,12 +190,27 @@ The script will conduct a series of load tests on the defined target endpoints, 
    results/service-post.csv
    ```
 
-2. **Logging Information**: Detailed log messages will be printed to the console during the script's execution, providing real-time insights into the progress of each trial. These logs include success rates, maximum and average latencies, and the trial's outcome (success or failure).
+
+<div align="center">
+
+![Example](.github/example_images/vegeta_csv_result_example.png)
+</div>
+
+2. **Plots**: For each target, for each rate, a plot will be generated (if this is not disabled by config file) showing the latency evolution throughout the execution time.
+
+<div align="center">
+
+![Example](.github/example_images/vegeta_plot_example.png)
+</div>
+
+3. **Logging Information**: Detailed log messages will be printed to the console during the script's execution, providing real-time insights into the progress of each trial. These logs include success rates, maximum and average latencies, and the trial's outcome (success or failure).
 
 By analyzing the CSV files and log messages, you can gain valuable insights into how your web services or APIs perform under different load conditions. This information can be used to optimize your services, set appropriate rate limits, and ensure they can handle traffic effectively and reliably.
 
 If you are trying heavy load tests, you may incur in the error: "socket: too many open files".
 In this case, make sure open file descriptor and process limits are set to a high number for your user on each machine using the ulimit command.
+
+
 
 ## Changelog
 
