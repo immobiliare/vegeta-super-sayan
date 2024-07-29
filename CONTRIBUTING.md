@@ -87,3 +87,8 @@ Thank you for your contributions!
 ## Contact
 
 If you have any questions or need further assistance, feel free to reach out to the maintainers.
+
+## Contributors
+
+- @EgonFerri
+- @domenicocinque

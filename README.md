@@ -193,6 +193,30 @@ By analyzing the CSV files and log messages, you can gain valuable insights into
 If you are trying heavy load tests, you may incur in the error: "socket: too many open files".
 In this case, make sure open file descriptor and process limits are set to a high number for your user on each machine using the ulimit command.
 
+## Changelog
+
+See [changelog](./CHANGELOG.md).
+
+## Contributing
+We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further discussion.
+
+If you plan to contribute new features, utility functions, or extensions to the core, please first open an issue and discuss the feature with us.
+Sending a PR without discussion might end up resulting in a rejected PR because we might be taking the core in a different direction than you might be aware of.
+
+To learn more about making a contribution, please see our [Contribution page](./CONTRIBUTING.md).
+
+## Powered apps
+
+Vegeta Super Sayan was created by ImmobiliareLabs, the technology department of [Immobiliare.it](https://www.immobiliare.it), the #1 real estate company in Italy.
+
+**If you are using Vegeta Super Sayan [drop us a message](mailto:opensource@immobiliare.it)**.
+
+## Support
+
+Made with ❤️ by [ImmobiliareLabs](https://github.com/immobiliare) and all the [contributors](./CONTRIBUTING.md#contributors)
+
+If you have any question on how to use Inca, bugs and enhancement please feel free to reach us out by opening a [GitHub Issue](https://github.com/immobiliare/inca/issues).
+
 <div align="center"s>
    <img src="https://wallpapers.com/images/hd/super-saiyan-blue-vegeta-dbz-4k-9mpdcke0rjcik7xw.jpg" width="800" height="auto"/>
 </div>
