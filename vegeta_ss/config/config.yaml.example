@@ -21,17 +21,17 @@ experiment_parameters:
   # Name used to help organizing and keeping different experiments results, which will be saved in results/experiments
   experiment_name: experiment_i
   # Maximum rate of request per second that will be tried
-  max_req_sec: 50
+  max_req_sec: 200
   # Minimum rate of request per second that will be tried
-  min_req_sec: 10
+  min_req_sec: 20
   # Time in seconds of each attack
-  experiment_duration_sec: 10
+  experiment_duration_sec: 3
   # Accepted maximum latency to consider the trail for a given rate successful
-  max_latency_upper_bound_msec: 2000
+  max_latency_upper_bound_msec: 600
   # Accepted average latency to consider the trail for a given rate successful
-  avg_latency_upper_bound_msec: 600
+  avg_latency_upper_bound_msec: 200
   # Sleep time between trials (important to allow the services to go back to a clean situation
-  sleep_time_between_trials_sec: 10
+  sleep_time_between_trials_sec: 2
   # Seconds before a given http call is considered failed due to timeout
   vegeta_timeout_sec: 5
   # Whether to save plots in .html format of each trial in results/plots
