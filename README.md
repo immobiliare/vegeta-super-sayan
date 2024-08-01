@@ -74,6 +74,7 @@ mv vegeta ~/bin # Or elsewhere, up to you.
 
 ```shell
 git clone https://github.com/immobiliare/vegeta-super-sayan
+cd vegeta-super-sayan
 ```
 
 ### Create virtualenv and install requirements
@@ -234,7 +235,7 @@ Vegeta Super Sayan was created by ImmobiliareLabs, the technology department of 
 
 Made with ❤️ by [ImmobiliareLabs](https://github.com/immobiliare) and all the [contributors](./CONTRIBUTING.md#contributors)
 
-If you have any question on how to use Inca, bugs and enhancement please feel free to reach us out by opening a [GitHub Issue](https://github.com/immobiliare/inca/issues).
+If you have any question on how to use vegeta super sayan, bugs and enhancement please feel free to reach us out by opening a [GitHub Issue](https://github.com/immobiliare/vegeta-super-sayan/issues).
 
 <div align="center"s>
    <img src="https://wallpapers.com/images/hd/super-saiyan-blue-vegeta-dbz-4k-9mpdcke0rjcik7xw.jpg" width="800" height="auto"/>

@@ -17,7 +17,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v5
         with:
           preset: conventionalcommits
-          github-token: ${{ secrets.GH_SRE_TOKEN }}
+          github-token: ${{ secrets.GH_AIDE_TOKEN }}
           git-user-name: ${{ github.actor }}
           git-user-email: ${{ github.actor }}@users.noreply.github.com
           tag-prefix: ''
@@ -33,4 +33,4 @@ jobs:
         with:
           tag_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
-          token: ${{ secrets.GH_SRE_TOKEN }}
+          token: ${{ secrets.GH_AIDE_TOKEN }}
