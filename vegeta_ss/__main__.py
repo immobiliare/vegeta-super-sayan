@@ -7,7 +7,6 @@ import time
 from pathlib import Path
 from typing import List
 
-import numpy as np
 from omegaconf import OmegaConf
 
 from vegeta_ss.models import AttackReport, Target, ExperimentParameters
@@ -224,7 +223,7 @@ def run_load_test(target: Target, experiment_params: ExperimentParameters) -> No
 
         solved = breaking_point - max_found <= 1
         if not solved:
-            rate = int(np.mean([max_found, breaking_point]))
+            rate = int((max_found + breaking_point) / 2)
 
         # Save results each iteration, to avoid losing them if process stops
         result_file_path = base_dir / file_name

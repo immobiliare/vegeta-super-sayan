@@ -1,3 +1,5 @@
+## [1.0.1](https://github.com/immobiliare/vegeta-super-sayan/compare/1.0.0...1.0.1) (2024-08-01)
+
 ## 1.0.0 (2024-07-30)
 
 
