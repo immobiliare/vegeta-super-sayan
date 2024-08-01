@@ -1,12 +1,13 @@
+import csv
 import json
 import os
 import subprocess
 import tempfile
 import time
 from pathlib import Path
+from typing import List
 
 import numpy as np
-import pandas as pd
 from omegaconf import OmegaConf
 
 from vegeta_ss.models import AttackReport, Target, ExperimentParameters
@@ -159,10 +160,19 @@ def evaluate_trial(
     return max_found, breaking_point
 
 
-def save_results(data: list, result_file_path: Path, result: AttackReport) -> None:
+def save_results(
+    data: List[list], result_file_path: Path, result: AttackReport
+) -> None:
     df_columns = ["req_s", "success_rate"] + list(result.latencies.keys())
-    result_df = pd.DataFrame(data=data, columns=df_columns).sort_values("req_s")
-    result_df.to_csv(result_file_path, index=False)
+
+    # Sort data by "req_s" (assuming it's the first element in each data list)
+    data_sorted = sorted(data, key=lambda x: x[0])
+
+    # Write to CSV
+    with open(result_file_path, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(df_columns)
+        writer.writerows(data_sorted)
 
 
 def run_load_test(target: Target, experiment_params: ExperimentParameters) -> None:
