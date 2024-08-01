@@ -1,9 +1,9 @@
+import csv
 import os
 from pathlib import Path
 from subprocess import CompletedProcess
 from tempfile import TemporaryDirectory
 
-import pandas as pd
 import pytest
 
 from vegeta_ss.__main__ import VegetaAttacker, evaluate_trial, save_results
@@ -268,14 +268,35 @@ def temp_directory():
 
 def test_save_results(temp_directory):
     result_file_path = temp_directory / "test_results.csv"
-    save_results(sample_data, result_file_path, test_result)
+
+    # Convert dictionary data to list format
+    sample_data_list = [
+        [
+            d["req_s"],
+            d["success_rate"],
+            test_result.latencies["max"],
+            d["mean"],
+            test_result.latencies["50th"],
+            test_result.latencies["90th"],
+            test_result.latencies["95th"],
+            test_result.latencies["99th"],
+            test_result.latencies["min"],
+        ]
+        for d in sample_data
+    ]
+
+    save_results(sample_data_list, result_file_path, test_result)
 
     # Check if the file was created
     assert result_file_path.exists()
 
     # Read the CSV file and check its contents
-    result_df = pd.read_csv(result_file_path)
-    assert list(result_df.columns) == [
+    with open(result_file_path, mode="r") as file:
+        reader = csv.reader(file)
+        headers = next(reader)
+        rows = list(reader)
+
+    assert headers == [
         "req_s",
         "success_rate",
         "max",
@@ -286,8 +307,11 @@ def test_save_results(temp_directory):
         "99th",
         "min",
     ]
-    assert len(result_df) == len(sample_data)
-    # You can add more specific checks on the DataFrame if needed
+    assert len(rows) == len(sample_data)
+
+    # Check if rows are correct
+    for row, original_data in zip(rows, sample_data_list):
+        assert row == [str(item) for item in original_data]
 
     # Clean up the temporary file
     result_file_path.unlink()
