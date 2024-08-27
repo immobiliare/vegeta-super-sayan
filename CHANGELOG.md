@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/immobiliare/vegeta-super-sayan/compare/1.0.0...1.0.1) (2024-08-27)
+
+
+### Bug Fixes
+
+* secret token for releases ([071e612](https://github.com/immobiliare/vegeta-super-sayan/commit/071e612a263b8583e1b3db76c2bbcdb0e1734eee))
+
 ## 1.0.0 (2024-07-30)
 
 
