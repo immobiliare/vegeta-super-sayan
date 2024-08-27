@@ -77,7 +77,7 @@ Before submitting your pull request, ensure that all tests pass and that the cod
    ```bash
    pytest --cov
    ```
-3 **Run the tests** using pytest:
+3. **Run the tests** using pytest:
    ```bash
    pre-commit run --all-files
    ```
