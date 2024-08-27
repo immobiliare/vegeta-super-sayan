@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://labs.immobiliare.it/">
-    <img src="https://labs.immobiliare.it/_next/static/media/immobiliare-labs.03203fa0.svg" width="650" height="auto"/>
+    <img src="https://media.licdn.com/dms/image/C5612AQH5XfKKTDIHPA/article-cover_image-shrink_600_2000/0/1520090560612?e=2147483647&v=beta&t=D-q0EPV6gZ3Pnly83XskVKf01Z52bAesnOISbwxVQsU" width="650" height="auto"/>
   </a>
 
 
