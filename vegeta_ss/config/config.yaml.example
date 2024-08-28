@@ -21,9 +21,9 @@ experiment_parameters:
   # Name used to help organizing and keeping different experiments results, which will be saved in results/experiments
   experiment_name: experiment_i
   # Maximum rate of request per second that will be tried
-  max_req_sec: 200
+  max_req_sec: 1200
   # Minimum rate of request per second that will be tried
-  min_req_sec: 20
+  min_req_sec: 600
   # Time in seconds of each attack
   experiment_duration_sec: 3
   # Accepted maximum latency to consider the trail for a given rate successful
