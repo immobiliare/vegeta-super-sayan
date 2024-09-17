@@ -102,6 +102,7 @@ def test_generate_target_file_get():
 
     assert content == expected_content
     assert not os.path.exists(file_path)
+    assert False
 
 
 def test_generate_target_file_post():
