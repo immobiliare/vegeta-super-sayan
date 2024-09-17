@@ -2,5 +2,5 @@ omegaconf==2.3.0
 pytest==8.3.2
 pytest-cov==5.0.0
 pytest-mock==3.14.0
-pydantic==2.8.2
-rich==13.7.1
+pydantic==2.9.1
+rich==13.8.0
