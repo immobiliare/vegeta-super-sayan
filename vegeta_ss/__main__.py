@@ -37,7 +37,7 @@ class VegetaAttacker:
 
     def generate_target_file(self):
         with open(self.target_file.name, "w") as f:
-            f.write(f"{self.target.method} {self.target.url}\n")
+            f.write(f"{self.target.method.name} {self.target.url}\n")
             for header, value in self.target.headers.items():
                 f.write(f"{header}: {value}\n")
             if self.target.body_file:
