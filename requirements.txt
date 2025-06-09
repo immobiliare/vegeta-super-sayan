@@ -1,5 +1,5 @@
 omegaconf==2.3.0
-pytest==8.3.5
+pytest==8.4.0
 pytest-cov==6.1.1
 pytest-mock==3.14.1
 pydantic==2.11.5
